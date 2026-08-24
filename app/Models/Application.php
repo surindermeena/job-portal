@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Application extends Model
+{
+    protected $table = 'applications';
+    protected $fillable = ['candidate_id', 'job_id', 'status'];
+    // -----------------------------------------------------------
+    public function candidate()
+    {
+        return $this->belongsTo(Candidate::class);
+    }
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
+    }
+}
